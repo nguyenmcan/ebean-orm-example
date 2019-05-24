@@ -10,21 +10,28 @@ import javax.persistence.*;
  */
 @Cache
 @Entity
-public class Address {
+public class Category {
 
   @Id
-  private long id;
+  private Long id;
 
   private String name;
 
   @Version
-  private long version;
+  private Long version;
 
-  public long getId() {
+  public Category() {
+  }
+
+  public Category(String name) {
+    this.name = name;
+  }
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -36,11 +43,11 @@ public class Address {
     this.name = name;
   }
 
-  public long getVersion() {
+  public Long getVersion() {
     return version;
   }
 
-  public void setVersion(long version) {
+  public void setVersion(Long version) {
     this.version = version;
   }
 }

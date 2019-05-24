@@ -7,25 +7,25 @@ import java.util.List;
 
 @Cache
 @Entity
-public class Customer {
+public class Product {
 
   @Id
-  private long id;
+  private Long id;
 
   private String name;
 
   @OrderColumn(name = "priority")
   @OneToMany(cascade = CascadeType.ALL)
-  private List<CustomerAddress> customerAddresses;
+  private List<ProductCategory> productCategories;
 
   @Version
-  private long version;
+  private Long version;
 
-  public Customer(String name) {
+  public Product(String name) {
     this.name = name;
   }
 
-  public Customer() {
+  public Product() {
   }
 
   @Override
@@ -57,11 +57,11 @@ public class Customer {
     this.version = version;
   }
 
-  public List<CustomerAddress> getCustomerAddresses() {
-    return customerAddresses;
+  public List<ProductCategory> getProductCategories() {
+    return productCategories;
   }
 
-  public void setCustomerAddresses(List<CustomerAddress> customerAddresses) {
-    this.customerAddresses = customerAddresses;
+  public void setProductCategories(List<ProductCategory> productCategories) {
+    this.productCategories = productCategories;
   }
 }

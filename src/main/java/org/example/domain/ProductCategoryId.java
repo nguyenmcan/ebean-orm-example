@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
  * @date 2019-05-23
  */
 @Embeddable
-public class CustomerAddressId {
+public class ProductCategoryId {
 
   private long customerId;
   private long addressId;

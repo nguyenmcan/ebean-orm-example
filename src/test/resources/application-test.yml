@@ -1,7 +1,11 @@
 ebean:
+  hazelcast:
+    servermode: true
+
   test:
-#    useDocker: false
-#    shutdown: stop # stop | remove
+    useDocker: false
+    #    shutdown: stop # stop | remove
     platform: h2 # h2, postgres, mysql, oracle, sqlserver, sqlite
     ddlMode: dropCreate # none | dropCreate | create | migration | createOnly | migrationDropCreate
-    dbName: myapp
+    dbName: testdb
+

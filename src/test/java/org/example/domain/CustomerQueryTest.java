@@ -1,19 +1,30 @@
 package org.example.domain;
 
 import io.ebean.Ebean;
-import org.example.domain.query.QCustomer;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 public class CustomerQueryTest {
 
   @Test
-  public void findAll() {
+  public void findById() {
+    Product product1 = Ebean.find(Product.class).setUseCache(true).where().eq("id", 1).findOne();
 
-    Ebean.find(Customer.class)
-        .findList();
+    assertNotNull(product1);
 
-    new QCustomer()
-      .id.greaterOrEqualTo(1L)
-      .findList();
+    product1.getProductCategories().forEach(customerAddress -> {
+      System.out.println(customerAddress.getCategory());
+    });
+
+    Product product2 = Ebean.find(Product.class).setUseCache(true).where().eq("id", 1).findOne();
+
+    assertNotNull(product2);
+
+    product2.getProductCategories().forEach(customerAddress -> {
+      System.out.println(customerAddress.getCategory());
+    });
   }
+
+
 }

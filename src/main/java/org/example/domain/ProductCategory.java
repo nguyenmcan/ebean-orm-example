@@ -6,41 +6,41 @@ import javax.persistence.*;
  * @author nguyencan
  * @date 2019-05-23
  */
-@IdClass(CustomerAddressId.class)
+@IdClass(ProductCategoryId.class)
 @Entity
-public class CustomerAddress {
+public class ProductCategory {
 
   @Id
-  @JoinColumn(name = "address_id")
+  @JoinColumn(name = "category_id")
   @ManyToOne
-  private Address address;
+  private Category category;
 
   @Id
-  @JoinColumn(name = "customer_id")
+  @JoinColumn(name = "product_id")
   @ManyToOne
-  private Customer customer;
+  private Product product;
 
-  public CustomerAddress() {
+  public ProductCategory() {
   }
 
-  public CustomerAddress(Address address, Customer customer) {
-    this.address = address;
-    this.customer = customer;
+  public ProductCategory(Category category, Product product) {
+    this.category = category;
+    this.product = product;
   }
 
-  public Address getAddress() {
-    return address;
+  public Category getCategory() {
+    return category;
   }
 
-  public void setAddress(Address address) {
-    this.address = address;
+  public void setCategory(Category category) {
+    this.category = category;
   }
 
-  public Customer getCustomer() {
-    return customer;
+  public Product getProduct() {
+    return product;
   }
 
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
+  public void setProduct(Product product) {
+    this.product = product;
   }
 }
